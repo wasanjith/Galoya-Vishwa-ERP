@@ -48,8 +48,8 @@ class RawMaterialForm
                     ->step(0.01)
                     ->minValue(0)
                     ->required()
-                    ->prefix('$')
-                    ->helperText('The cost per unit of measurement'),
+                    ->prefix('Rs.')
+                    ->helperText('The cost per unit of measurement in Sri Lankan Rupees'),
 
                 TextInput::make('minimum_stock_level')
                     ->label('Minimum Stock Level')

@@ -44,7 +44,7 @@ class RawMaterialsTable
 
                 TextColumn::make('cost_per_unit')
                     ->label('Cost/Unit')
-                    ->money('USD')
+                    ->money('LKR')
                     ->sortable(),
 
                 TextColumn::make('minimum_stock_level')

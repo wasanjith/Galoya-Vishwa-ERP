@@ -19,5 +19,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Seed essential data for dairy company
+        $this->call([
+            UnitSeeder::class,
+            RawMaterialCategorySeeder::class,
+            RawMaterialSeeder::class,
+            RawMaterialPurchaseSeeder::class,
+        ]);
     }
 }

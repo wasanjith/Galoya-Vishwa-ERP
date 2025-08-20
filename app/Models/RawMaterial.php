@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class RawMaterial extends Model
@@ -57,5 +58,13 @@ class RawMaterial extends Model
     public function stock(): HasOne
     {
         return $this->hasOne(RawMaterialStock::class);
+    }
+
+    /**
+     * Get the purchases for this raw material.
+     */
+    public function purchases(): HasMany
+    {
+        return $this->hasMany(RawMaterialPurchase::class);
     }
 }

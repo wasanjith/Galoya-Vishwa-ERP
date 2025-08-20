@@ -28,4 +28,12 @@ class Supplier extends Model
     {
         return $this->hasMany(RawMaterial::class, 'supplier_id');
     }
+
+    /**
+     * Get the purchases from this supplier.
+     */
+    public function purchases(): HasMany
+    {
+        return $this->hasMany(RawMaterialPurchase::class);
+    }
 }

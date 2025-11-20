@@ -50,6 +50,21 @@ class RawMaterialPurchase extends Model
     }
 
     /**
+     * Get the raw material stock for this purchase's raw material.
+     */
+    public function rawMaterialStock()
+    {
+        return $this->hasOneThrough(
+            RawMaterialStock::class,
+            RawMaterial::class,
+            'id', // Foreign key on RawMaterial table
+            'raw_material_id', // Foreign key on RawMaterialStock table
+            'raw_material_id', // Local key on RawMaterialPurchase table
+            'id' // Local key on RawMaterial table
+        );
+    }
+
+    /**
      * Check if the purchase is fully paid.
      */
     public function isFullyPaid(): bool

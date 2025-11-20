@@ -37,13 +37,6 @@ class RawMaterialCategoriesTable
                     ->trueColor('success')
                     ->falseColor('danger'),
                 
-                TextColumn::make('rawMaterials_count')
-                    ->label('Materials Count')
-                    ->counts('rawMaterials')
-                    ->sortable()
-                    ->badge()
-                    ->color('info'),
-                
                 TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime()

@@ -27,4 +27,38 @@ class RawMaterialStock extends Model
     {
         return $this->belongsTo(RawMaterial::class);
     }
+
+    /**
+     * Add quantity to the available stock.
+     */
+    public function addStock(float $quantity): void
+    {
+        $this->quantity_available += $quantity;
+        $this->last_updated = now();
+        $this->save();
+    }
+
+    /**
+     * Remove quantity from the available stock.
+     */
+    public function removeStock(float $quantity): void
+    {
+        $this->quantity_available = max(0, $this->quantity_available - $quantity);
+        $this->last_updated = now();
+        $this->save();
+    }
+
+    /**
+     * Get or create a stock record for the given raw material.
+     */
+    public static function getOrCreateForRawMaterial(int $rawMaterialId): self
+    {
+        return static::firstOrCreate(
+            ['raw_material_id' => $rawMaterialId],
+            [
+                'quantity_available' => 0,
+                'last_updated' => now()
+            ]
+        );
+    }
 }

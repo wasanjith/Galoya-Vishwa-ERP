@@ -18,5 +18,10 @@ class Route extends Model
     {
         return $this->hasMany(Store::class);
     }
+
+    public function creditSales(): HasMany
+    {
+        return $this->hasMany(CreditSale::class);
+    }
 }
 

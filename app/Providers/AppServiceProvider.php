@@ -39,6 +39,22 @@ class AppServiceProvider extends ServiceProvider
         );
 
         FilamentView::registerRenderHook(
+            PanelsRenderHook::RESOURCE_PAGES_LIST_RECORDS_TABLE_BEFORE,
+            static function (): string {
+                if (! request()->routeIs('filament.admin.resources.routes.index')) {
+                    return '';
+                }
+
+                if (! view()->exists('routescard')) {
+                    return '';
+                }
+
+                return view('routescard')->render();
+            },
+        );
+
+   
+        FilamentView::registerRenderHook(
             PanelsRenderHook::FOOTER,
             fn(): View=> view('footer'),
         );

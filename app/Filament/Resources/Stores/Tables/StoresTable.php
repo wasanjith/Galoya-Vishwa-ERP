@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class StoresTable
@@ -48,6 +49,15 @@ class StoresTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
+            ])
+            ->filters([
+                SelectFilter::make('route_id')
+                    ->label('Route')
+                    ->relationship('route', 'route')
+                    ->searchable()
+                    ->preload()
+                    ->placeholder('All routes')
+                    ->default(fn () => request()->integer('route') ? (string) request()->integer('route') : null),
             ])
             ->defaultSort('name')
             ->striped();

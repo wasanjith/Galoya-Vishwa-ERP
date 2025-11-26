@@ -60,17 +60,7 @@
                         </p>
                     </div>
                 </a>
-                <div class="mt-4 text-sm">
-                    <a
-                        href="{{ route('filament.admin.resources.routes.edit', ['record' => $route]) }}"
-                        class="inline-flex items-center gap-1 font-semibold text-sky-600 hover:text-sky-700 dark:text-sky-300 dark:hover:text-sky-200"
-                    >
-                        Manage route
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5L21 12l-7.5 7.5M21 12H3" />
-                        </svg>
-                    </a>
-                </div>
+                
             </div>
         @empty
             <div class="col-span-full rounded-3xl border border-dashed border-sky-200 bg-white p-8 text-center dark:border-gray-700 dark:bg-gray-900">

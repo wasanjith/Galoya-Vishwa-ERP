@@ -5,9 +5,11 @@ namespace App\Providers;
 use App\Models\CreditSale;
 use App\Models\RawMaterialPurchase;
 use App\Models\StockMovement;
+use App\Models\VehicleMaintenance;
 use App\Observers\CreditSaleObserver;
 use App\Observers\RawMaterialPurchaseObserver;
 use App\Observers\StockMovementObserver;
+use App\Observers\VehicleMaintenanceObserver;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\ServiceProvider;
@@ -32,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         StockMovement::observe(StockMovementObserver::class);
         RawMaterialPurchase::observe(RawMaterialPurchaseObserver::class);
         CreditSale::observe(CreditSaleObserver::class);
+        VehicleMaintenance::observe(VehicleMaintenanceObserver::class);
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::FOOTER,

@@ -14,21 +14,6 @@
 @endonce
 
 <div class="fi-route-cards px-4 sm:px-6 lg:px-8">
-    <div class="mb-6 rounded-2xl border border-gray-200 bg-white/80 p-6 shadow-sm backdrop-blur dark:border-gray-700 dark:bg-gray-900/70">
-        <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div>
-                <p class="text-xs font-semibold uppercase tracking-wide text-sky-500 dark:text-sky-300">Routes overview</p>
-                <p class="text-2xl font-semibold text-gray-900 dark:text-white">
-                    {{ number_format($routes->count()) }} active routes
-                </p>
-                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                    Tap any card below to see its shops.
-                </p>
-            </div>
-            
-        </div>
-    </div>
-
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         @forelse ($routes as $route)
             <div class="rounded-3xl border border-sky-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-lg dark:border-gray-700 dark:bg-gray-900 dark:hover:border-sky-500 dark:hover:bg-gray-800">
